@@ -1,0 +1,17 @@
+<!-- This page should display the question, each of the question's choices, and the number of votes for each choice -->
+<h1>Results For Question: "{{question.question_text}}"</h1>
+<table>
+    <thead>
+        <th>Choice</th>
+        <th>Votes</th>
+    </thead>
+    <tbody>
+    {% for choice in question.choice_set.all %}
+        <tr>
+            <td>{{choice.choice_text}}</td>
+            <td>{{choice.votes}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<p><a href={% url 'polls:index' %}>Back</a></p>
